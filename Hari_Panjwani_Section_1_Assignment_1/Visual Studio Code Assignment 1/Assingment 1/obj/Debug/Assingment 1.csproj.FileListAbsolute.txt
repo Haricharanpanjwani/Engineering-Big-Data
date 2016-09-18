@@ -1,0 +1,6 @@
+c:\users\saksh\documents\visual studio 2015\Projects\Assingment 1\Assingment 1\bin\Debug\Assingment 1.exe.config
+C:\Users\saksh\documents\visual studio 2015\Projects\Assingment 1\Assingment 1\bin\Debug\Assingment 1.exe
+C:\Users\saksh\documents\visual studio 2015\Projects\Assingment 1\Assingment 1\bin\Debug\Assingment 1.pdb
+C:\Users\saksh\documents\visual studio 2015\Projects\Assingment 1\Assingment 1\obj\Debug\Assingment 1.csprojResolveAssemblyReference.cache
+C:\Users\saksh\documents\visual studio 2015\Projects\Assingment 1\Assingment 1\obj\Debug\Assingment 1.exe
+C:\Users\saksh\documents\visual studio 2015\Projects\Assingment 1\Assingment 1\obj\Debug\Assingment 1.pdb
