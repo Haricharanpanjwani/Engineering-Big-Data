@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0-*",
+  "description": "wm Console Application",
+  "authors": [ "" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "compilationOptions": {
+    "emitEntryPoint": true
+  },
+
+  "tooling": {
+    "defaultNamespace": "wm"
+  },
+
+  "dependencies": {
+  },
+
+  "commands": {
+    "wm": "wm"
+  },
+
+  "frameworks": {
+    "dnx451": { }
+  }
+}

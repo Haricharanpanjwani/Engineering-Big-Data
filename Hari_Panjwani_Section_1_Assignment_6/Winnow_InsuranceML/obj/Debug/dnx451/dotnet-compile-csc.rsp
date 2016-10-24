@@ -1,0 +1,18 @@
+﻿-d:DEBUG
+-d:TRACE
+-d:DNX451
+-nowarn:CS1701
+-nowarn:CS1702
+-nowarn:CS1705
+-platform:x64
+-debug:full
+-nostdlib
+-nologo
+"C:\Users\saksh\Documents\4th Sem\Assignments\Assignment 6\InsuranceML\obj\Debug\dnx451\dotnet-compile.assemblyinfo.cs"
+-out:"C:\Users\saksh\Documents\4th Sem\Assignments\Assignment 6\InsuranceML\bin\Debug\dnx451\InsuranceML.exe"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\mscorlib.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\System.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\System.Core.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Microsoft.CSharp.dll"
+"C:\Users\saksh\Documents\4th Sem\Assignments\Assignment 6\InsuranceML\Program.cs"
+"C:\Users\saksh\Documents\4th Sem\Assignments\Assignment 6\InsuranceML\Winnow.cs"
