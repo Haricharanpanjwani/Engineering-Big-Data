@@ -1,0 +1,19 @@
+﻿-d:DEBUG
+-d:TRACE
+-d:DNX451
+-nowarn:CS1701
+-nowarn:CS1702
+-nowarn:CS1705
+-platform:x64
+-debug:full
+-nostdlib
+-nologo
+"C:\Users\saksh\Documents\4th Sem\Assignments\Assignment 8\Logistic_SuperMarketML\obj\Debug\dnx451\dotnet-compile.assemblyinfo.cs"
+-out:"C:\Users\saksh\Documents\4th Sem\Assignments\Assignment 8\Logistic_SuperMarketML\bin\Debug\dnx451\Logistic_SuperMarketML.exe"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\mscorlib.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\System.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\System.Core.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Microsoft.CSharp.dll"
+"C:\Users\saksh\Documents\4th Sem\Assignments\Assignment 8\Logistic_SuperMarketML\LogisticClassifier.cs"
+"C:\Users\saksh\Documents\4th Sem\Assignments\Assignment 8\Logistic_SuperMarketML\Program.cs"
+"C:\Users\saksh\Documents\4th Sem\Assignments\Assignment 8\Logistic_SuperMarketML\Utils.cs"

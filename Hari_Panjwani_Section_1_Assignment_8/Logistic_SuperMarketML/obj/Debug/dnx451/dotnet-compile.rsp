@@ -1,0 +1,24 @@
+--temp-output:C:\Users\saksh\Documents\4th Sem\Assignments\Assignment 8\Logistic_SuperMarketML\obj\Debug\dnx451\
+--out:C:\Users\saksh\Documents\4th Sem\Assignments\Assignment 8\Logistic_SuperMarketML\bin\Debug\dnx451\Logistic_SuperMarketML.exe
+--define:DEBUG
+--define:TRACE
+--define:DNX451
+--suppress-warning:CS1701
+--suppress-warning:CS1702
+--suppress-warning:CS1705
+--platform:x64
+--optimize:False
+--emit-entry-point:True
+--output-name:Logistic_SuperMarketML
+--description:wm Console Application
+--file-version:1.0.0.0
+--version:1.0.0.0
+--informational-version:1.0.0
+--target-framework:.NETFramework,Version=v4.5.1
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\mscorlib.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\System.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\System.Core.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Microsoft.CSharp.dll
+C:\Users\saksh\Documents\4th Sem\Assignments\Assignment 8\Logistic_SuperMarketML\LogisticClassifier.cs
+C:\Users\saksh\Documents\4th Sem\Assignments\Assignment 8\Logistic_SuperMarketML\Program.cs
+C:\Users\saksh\Documents\4th Sem\Assignments\Assignment 8\Logistic_SuperMarketML\Utils.cs
