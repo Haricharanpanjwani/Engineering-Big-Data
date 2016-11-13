@@ -10,21 +10,16 @@ import org.apache.hadoop.mapred.Mapper;
 import org.apache.hadoop.mapred.OutputCollector;
 import org.apache.hadoop.mapred.Reporter;
 
+import com.hadoop.ga.GeneticAlgoRunner;
+
 @SuppressWarnings("deprecation")
-public class ChromoNumberMapper extends MapReduceBase implements Mapper<LongWritable, Text, Text, Text>{
-
-	public static int poolSize = 0;
-
+public class ChromoMapper extends MapReduceBase implements Mapper<LongWritable, Text, Text, Text>
+{
 	@Override
-	public void configure(JobConf conf) {
-		// TODO Auto-generated method stub
-		poolSize = Integer.parseInt(conf.get("poolsize"));
-	}
-
-	@Override
-	public void map(LongWritable key, Text value, OutputCollector<Text, Text> output, Reporter reporter) throws IOException {
+	public void map(LongWritable key, Text value, OutputCollector<Text, Text> output, 
+					Reporter reporter) throws IOException {
 		try	{
-			for(int i=0; i < poolSize; i++)
+			for(int i=0; i < GeneticAlgoRunner.poolSize; i++)
 				output.collect(new Text("one"), new Text(String.valueOf(i)));
 		}
 		catch(Exception e) {

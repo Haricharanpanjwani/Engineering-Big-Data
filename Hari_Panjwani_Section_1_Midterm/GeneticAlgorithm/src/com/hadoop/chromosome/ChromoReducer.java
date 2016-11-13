@@ -12,24 +12,18 @@ import org.apache.hadoop.mapred.OutputCollector;
 import org.apache.hadoop.mapred.Reducer;
 import org.apache.hadoop.mapred.Reporter;
 
+import com.hadoop.ga.GeneticAlgoRunner;
+
 @SuppressWarnings("deprecation")
-public class ChromoNumberReducer extends MapReduceBase implements Reducer<Text, Text, Text, Text> {
+public class ChromoReducer extends MapReduceBase implements Reducer<Text, Text, Text, Text> 
+{
 
-	public static int target = 0;
-	public static double mutationRate = 0.0;
-	public static double crossoverRate = 0.0;
-	public static int chromoLength = 0;
+	public int target = GeneticAlgoRunner.target;
 
 	@Override
-	public void configure(JobConf conf) {
-		target = Integer.parseInt(conf.get("target"));
-		mutationRate = Double.parseDouble(conf.get("mutationRate"));
-		crossoverRate = Double.parseDouble(conf.get("crossoverRate"));
-		chromoLength = Integer.parseInt(conf.get("chromoLength"));
-	}
-
-	@Override
-	public void reduce(Text key, Iterator<Text> values, OutputCollector<Text, Text> output,  Reporter reporter) throws IOException {		
+	public void reduce(Text key, Iterator<Text> values, OutputCollector<Text, Text> output,  
+						Reporter reporter) throws IOException {		
+		
 		ArrayList<String> fitnessScoreList = new ArrayList<String>();
 		
 		try{			
@@ -37,7 +31,7 @@ public class ChromoNumberReducer extends MapReduceBase implements Reducer<Text, 
 				
 				values.next();
 				// creating new chromosome based on the target, crossover rate and mutation rate
-				Chromosome chromosome = new Chromosome(target, crossoverRate, mutationRate, chromoLength);
+				Chromosome chromosome = new Chromosome(target);
 
 				/*
 					add the “fitness score” as well as “chromosome” string in the fitnessScoreList because 

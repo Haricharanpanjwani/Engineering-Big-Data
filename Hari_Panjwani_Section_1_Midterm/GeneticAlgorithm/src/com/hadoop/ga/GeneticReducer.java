@@ -14,20 +14,9 @@ import org.apache.hadoop.mapred.Reporter;
 import com.hadoop.chromosome.Chromosome;
 
 @SuppressWarnings("deprecation")
-public class GeneticAlgoReducer extends MapReduceBase implements Reducer<Text, Text, Text, Text>{
+public class GeneticReducer extends MapReduceBase implements Reducer<Text, Text, Text, Text>{
 
-	int target =0;
-	double mutationRate = 0.0;
-	double crossoverRate = 0.0;
-	int chromoLength = 0;
-
-	@Override
-	public void configure(JobConf conf) {
-		target = Integer.parseInt(conf.get("target"));
-		mutationRate = Double.parseDouble(conf.get("mutationRate"));
-		crossoverRate = Double.parseDouble(conf.get("crossoverRate"));
-		chromoLength = Integer.parseInt(conf.get("chromoLength"));
-	}
+	int target = GeneticAlgoRunner.target;
 
 	@Override
 	public void reduce(Text key, Iterator<Text> values, OutputCollector<Text, Text> output, Reporter reporter) throws IOException {
@@ -35,8 +24,8 @@ public class GeneticAlgoReducer extends MapReduceBase implements Reducer<Text, T
 
 		while(values.hasNext()){
 
-			Chromosome firstChromosome = new Chromosome(target, crossoverRate, mutationRate, chromoLength);
-			Chromosome secondChromosome = new Chromosome(target,crossoverRate, mutationRate, chromoLength);
+			Chromosome firstChromosome = new Chromosome(target);
+			Chromosome secondChromosome = new Chromosome(target);
 
 			//selection of two 
 			String firstSelected = values.next().toString();
@@ -61,11 +50,11 @@ public class GeneticAlgoReducer extends MapReduceBase implements Reducer<Text, T
 			firstChromosome.scoreChromo(target);
 			secondChromosome.scoreChromo(target);			
 
-//			System.out.println("First selected Chromosome: " + firstSelected);
-//			System.out.println("Second selected Chromosome: " + secondSelected);
-//			
-//			System.out.println("First Chromosome total: " + firstChromosome.total + "\nFirst Chromosome isvalid: " + firstChromosome.isValid());
-//			System.out.println("Second Chromosome total: " + secondChromosome.total + "\nSecond Chromosome isvalid: " + secondChromosome.isValid());
+			System.out.println("First selected Chromosome: " + firstSelected);
+			System.out.println("Second selected Chromosome: " + secondSelected);
+			
+			System.out.println("First Chromosome total: " + firstChromosome.total + "\nFirst Chromosome isvalid: " + firstChromosome.isValid());
+			System.out.println("Second Chromosome total: " + secondChromosome.total + "\nSecond Chromosome isvalid: " + secondChromosome.isValid());
 
 			// Check to see if either is the solution
 			if (firstChromosome.total == target && firstChromosome.isValid()) {				

@@ -11,10 +11,11 @@ import org.apache.hadoop.mapred.OutputCollector;
 import org.apache.hadoop.mapred.Reporter;
 
 @SuppressWarnings("deprecation")
-public class GeneticAlgoMapper extends MapReduceBase implements Mapper<LongWritable, Text, Text, Text>{
-
+public class GeneticMapper extends MapReduceBase implements Mapper<LongWritable, Text, Text, Text>
+{
 	@Override
-	public void map(LongWritable key, Text value, OutputCollector<Text, Text> output, Reporter reporter) throws IOException {		
+	public void map(LongWritable key, Text value, OutputCollector<Text, Text> output, 
+					Reporter reporter) throws IOException {		
 
 		StringTokenizer input = new StringTokenizer(value.toString(),"\t");
 		int outputKey = Integer.parseInt(input.nextToken());

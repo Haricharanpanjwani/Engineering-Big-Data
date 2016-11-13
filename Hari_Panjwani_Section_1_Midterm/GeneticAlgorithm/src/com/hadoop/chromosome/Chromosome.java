@@ -22,15 +22,11 @@ public  class Chromosome {
 		this.chromo = chromo; 
 	}
 
-	// Constructor that generates a random
-	public Chromosome(int target, double crossRate, double mutRate, int chromoLen) {
-
-		Chromosome.crossoverRate = crossRate;
-		Chromosome.mutationRate = mutRate;
-		Chromosome.chromoLength = chromoLen;
+	// Constructor that generates a random bits of chromosome length
+	public Chromosome(int target) {
 
 		// Create the full buffer
-		for(int y=0; y < chromoLen; y++) {
+		for(int y=0; y < chromoLength; y++) {
 
 			// What's the current length
 			int pos = chromo.length();
@@ -72,8 +68,9 @@ public  class Chromosome {
 	// Scores this chromo
 	public final void scoreChromo(int target) {
 		total = addUp();
-		if (total == target) score = 0;
-		score = (double)1 / (target - total);
+		if (total == target) score = 1;
+		else
+			score = (double)1 / (target - total);
 	}
 
 	// Crossover bits

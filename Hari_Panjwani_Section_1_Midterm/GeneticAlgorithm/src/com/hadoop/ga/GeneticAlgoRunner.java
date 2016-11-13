@@ -1,7 +1,7 @@
 package com.hadoop.ga;
 
-import com.hadoop.chromosome.ChromoNumberMapper;
-import com.hadoop.chromosome.ChromoNumberReducer;
+import com.hadoop.chromosome.ChromoMapper;
+import com.hadoop.chromosome.ChromoReducer;
 
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
@@ -15,40 +15,32 @@ import org.apache.hadoop.mapred.FileOutputFormat;
 
 @SuppressWarnings("deprecation")
 public class GeneticAlgoRunner {
+	
+	public static int target = 0;
+	public static int poolSize = 0;
 
 	public static enum MoreIterations {
 		validSolution
 	}
 
-	public static void main(String[] args) throws Exception {
-
-		String inputFile = args[0];
-		String outputLocation = args[1];
-		String target = args[2];
-		String poolSize = args[3];
-		String crossoverRate = args[4];
-		String mutationRate = args[5];
+	public static void evolutionaryGA(String inputFile, String outputLocation) throws Exception {
 
 		int steps = 0;
 
 		while(true){
-
+			
 			JobConf chromoConfig = new JobConf(GeneticAlgoRunner.class);
 			chromoConfig.setJobName("Fitness_Score_And_Chromosome");						
 
-			chromoConfig.set("poolsize", poolSize);
-			chromoConfig.set("target", target);			
-			chromoConfig.set("crossoverRate", crossoverRate);
-			chromoConfig.set("mutationRate", mutationRate);
-
-			chromoConfig.setMapperClass(ChromoNumberMapper.class);
-			chromoConfig.setReducerClass(ChromoNumberReducer.class);
+			chromoConfig.setMapperClass(ChromoMapper.class);
+			chromoConfig.setReducerClass(ChromoReducer.class);
 
 			chromoConfig.setOutputKeyClass(Text.class);
 			chromoConfig.setOutputValueClass(Text.class);
-
+			
+			Path inputPath = new Path(outputLocation + "\\readOutput");
 			Path outputPath = new Path(outputLocation + "\\Output");
-			FileInputFormat.setInputPaths(chromoConfig,  new Path(inputFile));
+			FileInputFormat.setInputPaths(chromoConfig,  inputPath);
 			FileOutputFormat.setOutputPath(chromoConfig, outputPath);
 
 			try {
@@ -65,13 +57,8 @@ public class GeneticAlgoRunner {
 			JobConf gaConfig = new JobConf(GeneticAlgoRunner.class);
 			gaConfig.setJobName("Genetic_Algorithm");
 
-			gaConfig.set("poolsize", poolSize);
-			gaConfig.set("target", target);			
-			gaConfig.set("crossoverRate", crossoverRate);
-			gaConfig.set("mutationRate", mutationRate);
-
-			gaConfig.setMapperClass(GeneticAlgoMapper.class);
-			gaConfig.setReducerClass(GeneticAlgoReducer.class);
+			gaConfig.setMapperClass(GeneticMapper.class);
+			gaConfig.setReducerClass(GeneticReducer.class);
 
 			gaConfig.setOutputKeyClass(Text.class);
 			gaConfig.setOutputValueClass(Text.class);			
@@ -83,7 +70,6 @@ public class GeneticAlgoRunner {
 			Job gaJob = new Job(gaConfig);
 
 			try {
-				//JobClient.runJob(gaConfig);
 				gaJob.waitForCompletion(true);
 				Counters gaCounter = gaJob.getCounters();
 				long terminationValue = gaCounter.findCounter(MoreIterations.validSolution).getValue();
@@ -98,9 +84,7 @@ public class GeneticAlgoRunner {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-
 			steps ++;
-
 			System.out.println("Number of steps: " + steps );
 		}
 
