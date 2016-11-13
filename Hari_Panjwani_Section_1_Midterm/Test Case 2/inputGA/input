@@ -1,0 +1,5 @@
+PopulationSize 60
+ChromoLength 5
+MutationRate 0.001
+CrossoverRate 0.7
+target 15
