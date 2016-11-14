@@ -22,7 +22,7 @@ public class ReadMapper extends MapReduceBase implements Mapper<LongWritable, Te
 		String[] line = value.toString().split(" ");
 		if(line[0].toString().contains("Size")) {
 			GeneticAlgoRunner.poolSize = Integer.parseInt(line[1].toString());
-			output.collect(new Text("target"), new Text(line[1]));
+			output.collect(new Text("populationsize"), new Text(line[1]));
 		}
 		else if(line[0].toString().contains("Length"))
 			Chromosome.chromoLength = Integer.parseInt(line[1].toString());
