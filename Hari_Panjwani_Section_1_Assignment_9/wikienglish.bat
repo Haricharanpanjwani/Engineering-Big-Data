@@ -1,6 +1,6 @@
-awk '{$3+=100}1' oldInput.txt > newInput.txt
+awk '{$3+=1}1' oldInput.txt > newInput.txt
 
-sed "s/\,/\\t/g" newInput.txt >> input.txt
+sed "s/\\t/\,/g" newInput.txt >> input.txt
 
 bin/hadoop jar mahout-core-0.7-job.jar org.apache.mahout.cf.taste.hadoop.item.RecommenderJob -Dmapred.input.dir=WikiEnglish/input.txt -Dmapred.output.dir=output --usersFile WikiEnglish/users.txt --booleanData true --similarityClassname SIMILARITY_COOCCURRENCE
 
