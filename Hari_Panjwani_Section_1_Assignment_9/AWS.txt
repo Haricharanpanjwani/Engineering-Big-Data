@@ -1,0 +1,28 @@
+AWS
+
+AWS Educate
+
+Amazon Ubuntu - root
+Normal Ubuntu - ubuntu
+
+4gb ram
+8-10 instances
+atleast 30gb
+tag the instance
+ec2_credentials key pair
+
+public dns - bottom right (IP address)
+
+(.pem as it is from linux or mac) - putty (change to format putty excepts) (..pk file for windows)
+
+#rw_r_r (change the permission on file)
+chmod 600 ec2_credentials.pem
+
+ssh -i ec2_credentials ubuntu@public_dns
+
+#install hadoop
+(wget) address of downloadble hadoop (Download from internet)
+
+scp -source -destination
+
+scp -i ec2_credentials.pem ~/Desktop/RandomForext.txt ubuntu@public_dns:~/Downloads
